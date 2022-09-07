@@ -28,12 +28,30 @@ print(precos)
 precos = list(map(lambda elemento: round(elemento * 1.10,2),precos))
 print(precos)
 
+#USANDO listcomprehension
+preco = [round(elemento * 1.10,2) for elemento in precos]
+print(f'listcomprehension:{preco}')
+
 # Reajustar os valores na TABELA DE PRODUTOS
 def calcular(valor):
     return round(valor * 1.10,2)
 
 novaListaProdutos = list(map(lambda elemento: {**elemento, 'Frete': calcular(elemento['Frete']) },produtos))
 print(novaListaProdutos)
+
+#USANDO listcomprehension
+novaListaProdutosCompre = [{**elemento, 'Frete': calcular(elemento['Frete'])} for elemento in produtos]
+print(f'novaListaProdutosCompre:{novaListaProdutosCompre}')
+
+#USANDO listcomprehension CRIAR NOVA LISTA com milho para RS
+novaMilhoRS = [{**elemento, 'Destino': 'RS'} for elemento in produtos if elemento['Produto'] == 'MILHO']
+print(f'novaMilhoRS:{novaMilhoRS}')
+
+#USANDO listcomprehension MESMA LISTA com milho para RS
+atualMilhoRS = [{**elemento, 'Destino': 'RS'} if elemento['Produto'] == 'MILHO' else elemento for elemento in produtos]
+print(f'atualMilhoRS:{atualMilhoRS}')
+
+
 
 #4 Temos que transporta MILHO, sendo assim gerar uma nova Lista
 print('ex4')

@@ -1,3 +1,4 @@
+mysql-connector-python==8.0.30
 openpyxl==3.0.10
 pandas==1.4.3
 pip-chill==1.0.1
